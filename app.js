@@ -22,6 +22,8 @@ function randomColors(){
         //Add the color to the bg
         div.style.backgroundColor = randomColor;
         hexText.innerText = randomColor;
+        //Check for contrast
+        checkTextContrast(randomColor,hexText);
     });
 }
 
