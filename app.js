@@ -9,12 +9,17 @@ let initialColors;
 //Add our event Listeners
 sliders.forEach(slider => {
     slider.addEventListener('input', hslControls);
-})
+});
 colorDivs.forEach((slider,index) => {
     slider.addEventListener('change', () => {
         updateTextUi(index);
-    })
-})
+    });
+});
+currentHexes.forEach(hex =>{
+    hex.addEventListener('click', () => {
+        copyToClipboard(hex);
+    });
+});
 
 //Functions
 
@@ -128,6 +133,13 @@ function resetInputs(){
             slider.value = Math.floor(satValue * 100)/ 100;
         }
     });
+}
+function copyToClipboard(hex){
+    const el = document.createElement('textarea');
+    el.value = hex.innerText;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
 }
 
 randomColors();
