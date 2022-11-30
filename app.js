@@ -49,9 +49,13 @@ function colorizeSliders (color, hue, brightness, saturation){
     const noSat = color.set('hsl.s', 0);
     const fullSat = color.set('hsl.s', 1);
     const scaleSat = chroma.scale([noSat, color, fullSat]);
+    //Scale Brightness
+    const midBright = color.set('hsl.l', 0.5);
+    const scaleBright = chroma.scale(['black', midBright, 'white']);
 
     //Update Input Colors
     saturation.style.backgroundImage = `linear-gradient(to right,${scaleSat(0)}, ${scaleSat(1)})`;
-}
+    brightness.style.backgroundImage = `linear-gradient(to right,${scaleBright(0)}, ${scaleBright(0.5)}, ${scaleBright(1)})`;
+}   
 
 randomColors();
