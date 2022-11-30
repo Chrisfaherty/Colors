@@ -24,3 +24,14 @@ function randomColors(){
         hexText.innerText = randomColor;
     });
 }
+
+function checkTextContrast(color,text){
+    const luminance = chroma(color).luminance();
+    if(luminance > 0.5){
+        text.style.color = "black";
+    } else {
+        text.style.color = "white";
+    }
+}
+
+randomColors();
