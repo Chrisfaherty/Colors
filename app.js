@@ -48,6 +48,8 @@ function randomColors(){
 
         colorizeSliders(color, hue, brightness, saturation);
     });
+    //Reset Inputs
+    resetInputs();
 }
 
 function checkTextContrast(color,text){
@@ -103,6 +105,21 @@ function updateTextUi(index){
     for(icon of icons){
         checkTextContrast(color, icon);
     }
+}
+function resetInputs(){
+    const sliders = document.querySelectorAll('.sliders input');
+    sliders.forEach(slider => {
+        if(slider.name === "hue"){
+            const hueColor = initialColors[slider.getAttribute('data-hue')];
+            const hueValue = chroma(hueColor).hsl()[0];
+            slider.value = Math.floor(hueValue);
+        }
+        if(slider.name === "brightness"){
+            const brightColor = initialColors[slider.getAttribute('data-bright')];
+            const brightValue = chroma(brightColor).hsl()[2];
+            slider.value = Math.floor(brightValue * 100)/ 100;
+        }
+    });
 }
 
 randomColors();
