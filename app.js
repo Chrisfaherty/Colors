@@ -209,5 +209,32 @@ function closePalette(e) {
     saveContainer.classList.remove('active');
     popup.classList.remove('active');
 }
+function savePalette(e) {
+    saveContainer.classList.remove('active');
+    popup.classList.remove('active');
+    const name = saveInput.value;
+    const colors = [];
+    currentHexes.forEach(hex => {
+        colors.push(hex.innerText);
+    });
+//Generate Object
+let paletteNr = savedPalettes.length;
+const paletteObj = {name, colors, nr: paletteNr};
+savedPalettes.push(paletteObj);
+//save to local storage
+savetoLocal(paletteObj);
+saveInput.value = '';
+}
+
+function savetoLocal(paletteObj){
+    let localPalettes;
+    if(localStorage.getItem('palettes') === null){
+        localPalettes = [];
+    }else{
+        localPalettes = JSON.parse(localStorage.getItem('palettes'));
+    }
+    localPalettes.push(paletteObj);
+    localStorage.setItem('palettes', JSON.stringify(localPalettes));
+}
 
 randomColors();
