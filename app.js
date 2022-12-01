@@ -10,6 +10,9 @@ const closeAdjustments = document.querySelectorAll('.close-adjustment');
 const sliderContainers = document.querySelectorAll('.sliders');
 let initialColors;
 
+//This is for local storage
+let savedPalettes = [];
+
 
 //Add our event Listeners
 generateBtn.addEventListener('click', randomColors);
@@ -184,5 +187,15 @@ function openAdjustmentPanel(index) {
 function closeAdjustmentPanel(index) {
     sliderContainers[index].classList.remove('active');
 }
+
+//Implement Save to palette and LOCAL STORAGE
+const saveBtn = document.querySelector('.save');
+const submitSave = document.querySelector('.submit-save');
+const closeSave = document.querySelector('.close-save');
+const saveContainer = document.querySelector('.save-container');
+const saveInput = document.querySelector('.save-container input');
+
+//Event Listeners for LOCAL STORAGE
+saveBtn.addEventListener('click', openPalette);
 
 randomColors();
