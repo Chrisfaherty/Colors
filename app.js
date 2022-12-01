@@ -198,4 +198,10 @@ const saveInput = document.querySelector('.save-container input');
 //Event Listeners for LOCAL STORAGE
 saveBtn.addEventListener('click', openPalette);
 
+function openPalette(e){
+    const popup = saveContainer.children[0];
+    saveContainer.classList.add('active');
+    popup.classList.add('active');
+}
+
 randomColors();

@@ -115,7 +115,7 @@ input[type="range"]{
     cursor: pointer;
 }
 
-.copy-container{
+.copy-container, .save-container, .library-container{
     position: fixed;
     top: 0%;
     left: 0%;
@@ -129,7 +129,7 @@ input[type="range"]{
     opacity: 0;
     pointer-events: none;
 }
-.copy-popup{
+.copy-popup, .save-popup, .library-popup {
     background: white;
     display: flex;
     flex-direction: column;
@@ -141,7 +141,7 @@ input[type="range"]{
     min-width: 30%;
     min-height: 30vh;
 }
-.copy-popup h4{
+.copy-popup h4, .save-popup h4, .library-popup h4 {
     font-size: 2rem;
     padding: 2rem;
 }
