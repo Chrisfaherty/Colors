@@ -145,11 +145,11 @@ input[type="range"]{
     font-size: 2rem;
     padding: 2rem;
 }
-.copy-container.active{
+.copy-container.active, .save-container.active, .library-container.active{
     opacity: 1;
     pointer-events: all;
 }
-.copy-popup.active{
+.copy-popup.active, .save-popup.active, .library-popup.active{
     transform: transulateY(0rem);
 }
 
